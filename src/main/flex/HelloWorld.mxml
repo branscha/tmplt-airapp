@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?> 
+
+<!-- 
+    For mobile this needs to be an Application.
+    For desktop applications this can be a WindowedApplication, it has more options regarding the title and other decorations.
+-->
+<s:Application 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+    xmlns:s="library://ns.adobe.com/flex/spark" 
+    xmlns:mx="library://ns.adobe.com/flex/mx" > 
+     
+    <s:Label text="Hello AIR" fontSize="20" horizontalCenter="0" verticalCenter="0"/> 
+    
+</s:Application>

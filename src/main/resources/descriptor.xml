@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!--
+	Can be WindowedApplication for desktop apps.
+	Use generic Application for cross-platform apps.
+-->
+<application xmlns="http://ns.adobe.com/air/application/15.0"> 
+    <id>branscha.test.HelloWorld</id> 
+    <versionNumber>0.1</versionNumber> 
+    <filename>HelloWorld</filename> 
+    <initialWindow> 
+        <content>HelloWorld.swf</content> 
+        <visible>true</visible> 
+        <width>400</width> 
+        <height>200</height> 
+    </initialWindow> 
+    <icon>
+       <image36x36>/assets/logo36.png</image36x36>
+       <image48x48>/assets/logo48.png</image48x48>
+       <image72x72>/assets/logo72.png</image72x72>
+	</icon>
+</application>
