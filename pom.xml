@@ -1,160 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>branscha.templates</groupId>
-  <artifactId>air-template</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>air</packaging>
-  <name>Air Template</name>
-  
-  <!--
-  	Private Maven repositories where the Mavenized Apache Flex/Air 
-  	artifacts are stored. At this point in time the Flex/Air artifacts are not
-  	available on any public Maven server, this might change in the future though.
-  -->
-  <repositories>
-  	<repository>
-  	   <id>dropbox</id>                        
-       <url>https://dl.dropboxusercontent.com/u/48099178/mvn-flex-repo</url>   
-  	</repository>
-  </repositories>
-  
-  <pluginRepositories>
-  	<pluginRepository>
-  	   <id>dropbox</id>                        
-       <url>https://dl.dropboxusercontent.com/u/48099178/mvn-flex-repo</url>   
-  	</pluginRepository>
-  </pluginRepositories>
-  
+    <groupId>branscha.templates</groupId>
+    <artifactId>air-template</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>air</packaging>
+    <name>Air Template</name>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <flexmojos.version>6.0.1</flexmojos.version>
-    <flex.framework.version>4.13.0.20140701</flex.framework.version>
-    <air.version>15.0</air.version>
-    <playerglobal.version>11.7</playerglobal.version>
-  </properties>
-
-  <build>
-    <sourceDirectory>src/main/flex</sourceDirectory>
-    <testSourceDirectory>src/test/flex</testSourceDirectory>
-    <!-- 
-    	The name of the final jar, it is used in the application descriptor 
-    	src/main/resources/descriptor.xml
+    <!--
+        Private Maven repositories where the Mavenized Apache Flex/Air
+        artifacts are stored. At this point in time the Flex/Air artifacts are not
+        available on any public Maven server, this might change in the future though.
     -->
-    <finalName>HelloWorld</finalName>
-    
-    <plugins>
-      <plugin>
-        <groupId>net.flexmojos.oss</groupId>
-        <artifactId>flexmojos-maven-plugin</artifactId>
-        <version>${flexmojos.version}</version>
-        <extensions>true</extensions>
-        
-        <configuration>
-          <targetPlayer>${playerglobal.version}</targetPlayer>
-          <!--
-            Flex compiler options.
-          -->
-          <debug>${mxmlc.debug}</debug>
-          <optimize>${mxmlc.optimize}</optimize>
-          
-          <compilerWarnings>
-            <show-actionscript-warnings>false</show-actionscript-warnings>
-            <show-binding-warnings>false</show-binding-warnings>
-            <show-invalid-css-property-warnings>false</show-invalid-css-property-warnings>
-          </compilerWarnings>
+    <repositories>
+        <repository>
+            <id>dropbox</id>
+            <url>https://dl.dropboxusercontent.com/u/48099178/mvn-flex-repo</url>
+        </repository>
+    </repositories>
 
-          <storepass>changeit</storepass>
-        
-          <includeTestFiles>
-            <include>**/*Test.as</include>
-            <include>**/*TestCase.as</include>
-          </includeTestFiles>
-        </configuration>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>dropbox</id>
+            <url>https://dl.dropboxusercontent.com/u/48099178/mvn-flex-repo</url>
+        </pluginRepository>
+    </pluginRepositories>
 
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.flex</groupId>
-            <artifactId>compiler</artifactId>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <flexmojos.version>6.0.1</flexmojos.version>
+        <flex.framework.version>4.13.0.20140701</flex.framework.version>
+        <air.version>15.0</air.version>
+        <playerglobal.version>11.7</playerglobal.version>
+    </properties>
+
+    <build>
+        <sourceDirectory>src/main/flex</sourceDirectory>
+        <testSourceDirectory>src/test/flex</testSourceDirectory>
+        <!--
+            The name of the final jar, it is used in the application descriptor
+            src/main/resources/descriptor.xml
+        -->
+        <finalName>HelloWorld</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>net.flexmojos.oss</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>${flexmojos.version}</version>
+                <extensions>true</extensions>
+
+                <configuration>
+                    <targetPlayer>${playerglobal.version}</targetPlayer>
+                    <!--
+                      Flex compiler options.
+                    -->
+                    <debug>${mxmlc.debug}</debug>
+                    <optimize>${mxmlc.optimize}</optimize>
+
+                    <compilerWarnings>
+                        <show-actionscript-warnings>false</show-actionscript-warnings>
+                        <show-binding-warnings>false</show-binding-warnings>
+                        <show-invalid-css-property-warnings>false</show-invalid-css-property-warnings>
+                    </compilerWarnings>
+
+                    <storepass>changeit</storepass>
+
+                    <includeTestFiles>
+                        <include>**/*Test.as</include>
+                        <include>**/*TestCase.as</include>
+                    </includeTestFiles>
+                </configuration>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.flex</groupId>
+                        <artifactId>compiler</artifactId>
+                        <version>${flex.framework.version}</version>
+                        <type>pom</type>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.adobe.air</groupId>
+                        <artifactId>compiler</artifactId>
+                        <version>${air.version}</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!--
+            Core Flex
+        -->
+        <dependency>
+            <groupId>org.apache.flex.framework</groupId>
+            <artifactId>flex-framework</artifactId>
             <version>${flex.framework.version}</version>
             <type>pom</type>
-          </dependency>
-          <dependency>
-          <groupId>com.adobe.air</groupId>
-          <artifactId>compiler</artifactId>
-          <version>${air.version}</version>
-          <type>pom</type>
         </dependency>
-        </dependencies>
-      </plugin>
 
-    </plugins>
-  </build>
+        <!--
+            The AIR runtime, not the browser player as with browser flash.
+        -->
+        <dependency>
+            <groupId>com.adobe.air.framework</groupId>
+            <artifactId>airglobal</artifactId>
+            <version>15.0</version>
+            <type>swc</type>
+        </dependency>
 
-  <dependencies>
-  	<!--
-  		Core Flex
-  	-->
-    <dependency>
-      <groupId>org.apache.flex.framework</groupId>
-      <artifactId>flex-framework</artifactId>
-      <version>${flex.framework.version}</version>
-      <type>pom</type>
-    </dependency>
+        <!--
+            AirSpark theme iso. browser flash spark theme.
+        -->
+        <dependency>
+            <groupId>org.apache.flex.framework.air</groupId>
+            <artifactId>airspark</artifactId>
+            <version>${flex.framework.version}</version>
+            <type>swc</type>
+            <scope>theme</scope>
+        </dependency>
 
-	<!-- 
-		The AIR runtime, not the browser player as with browser flash.
-	-->
-    <dependency>
-      <groupId>com.adobe.air.framework</groupId>
-      <artifactId>airglobal</artifactId>
-      <version>15.0</version>
-      <type>swc</type>
-    </dependency>
-    
-    <!--
-    	AirSpark theme iso. browser flash spark theme.
-    -->
-    <dependency>
-      <groupId>org.apache.flex.framework.air</groupId>
-      <artifactId>airspark</artifactId>
-      <version>${flex.framework.version}</version>
-      <type>swc</type>
-      <scope>theme</scope>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.flex.framework.air</groupId>
-      <artifactId>air-framework</artifactId>
-      <version>${flex.framework.version}</version>
-      <type>pom</type>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.flex.framework.air</groupId>
-      <artifactId>common-framework</artifactId>
-      <version>${flex.framework.version}</version>
-      <type>pom</type>
-    </dependency>
-    
-    <!-- 
-    	Test stuff
-    -->
-    <dependency>
-      <groupId>org.flexunit</groupId>
-      <artifactId>flexunit</artifactId>
-      <version>4.1.0</version>
-      <classifier>flex4</classifier>
-      <type>swc</type>
-      <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.apache.flex.framework.air</groupId>
+            <artifactId>air-framework</artifactId>
+            <version>${flex.framework.version}</version>
+            <type>pom</type>
+        </dependency>
 
-  </dependencies>
+        <dependency>
+            <groupId>org.apache.flex.framework.air</groupId>
+            <artifactId>common-framework</artifactId>
+            <version>${flex.framework.version}</version>
+            <type>pom</type>
+        </dependency>
+
+        <!--
+            Test stuff
+        -->
+        <dependency>
+            <groupId>org.flexunit</groupId>
+            <artifactId>flexunit</artifactId>
+            <version>4.1.0</version>
+            <classifier>flex4</classifier>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
 </project>
