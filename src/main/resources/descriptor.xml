@@ -9,11 +9,13 @@
     <versionNumber>0.1</versionNumber> 
     <filename>HelloWorld</filename> 
     <initialWindow> 
-        <content>HelloWorld.swf</content> 
-        <visible>true</visible> 
-        <width>400</width> 
-        <height>200</height> 
-    </initialWindow> 
+        <content>HelloWorld.swf</content>
+        <visible>true</visible>
+        <!-- Allow rotation on mobile devices -->
+        <autoOrients>true</autoOrients>
+        <width>400</width>
+        <height>200</height>
+    </initialWindow>
     <icon>
        <image36x36>/assets/logo36.png</image36x36>
        <image48x48>/assets/logo48.png</image48x48>

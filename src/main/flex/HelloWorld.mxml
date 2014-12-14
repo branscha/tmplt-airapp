@@ -7,7 +7,21 @@
 <s:Application 
 	xmlns:fx="http://ns.adobe.com/mxml/2009" 
     xmlns:s="library://ns.adobe.com/flex/spark" 
-    xmlns:mx="library://ns.adobe.com/flex/mx" > 
+    xmlns:mx="library://ns.adobe.com/flex/mx"
+    applicationDPI="120">
+
+    <!--
+        Note on DPI values on Android devices
+        * ldpi = low density = 120
+          This corresponds to a desktop monitor.
+        * mdpi = medium density = 160
+        * tvdpi = ... = 213
+          This is the Nexus 7 setting.
+        * hdpi = high dpi = 240
+        * xhdpi = extra high density = 320
+        * xxhdpi = extra extra high density = 480
+        * xxxhdpi = extra extra extra high density = 640
+    -->
      
     <s:Label text="Hello AIR" fontSize="20" horizontalCenter="0" verticalCenter="0"/> 
     
