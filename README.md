@@ -1,29 +1,31 @@
 # Sample Apache Adobe AIR/Apache Flex project
-## Description
+## 1. Description
 
 A template AIR project that can be built using Maven, it creates a Desktop AIR applcation.
 The Flexmojos currently cannot produce an APK for Android (or another mobile platform) automatically.
 The build makes use of a private Maven repository containing the Mavenized Flex SDK.
 
-## Generate a keyfile to sign the air
+## 2. Additional Information
+### 2.1. Generate a keyfile to sign the air
 
-The adt tool can be found in the Flex SDK distribution.
+The adt tool can be found in the Flex SDK distribution. The location might vary for differenet SDK versions. Make sure that the .bat exists in that location.
 
     SET ADT=[FLEX-SDK]\in\airsdk\bin\adt.bat
 
-Copy this file to the src/resources directory.
+Copy this file to the src/resources directory. I generated a self signed code signing certificate which is valid for 10 yrs. Only use this for test purposes,
+you need to buy an official certificate if you want to distribute your application.
 
     %ADT% -certificate -cn "Bruno Ranschaert" -validityPeriod 10 2048-RSA sign.p12 changeit
 
-## Create Android APK from AIR
+### 2.2.Create Android APK from AIR
 
-Run this command in the project home after the .air was created.
+Run this command in the project home after the .air was created. The AIR application can be converted to an Android APK.
 
     %ADT% -package -target apk | apk-debug
           -storetype pkcs12 -keystore src/main/resources/sign.p12 -storepass changeit 
           target/HelloWorld.apk target/HelloWorld.air
 
-## Install the APK on an Android device
+### 2.3. Install the APK on an Android device
 
 First start an emulator or connect your Android device (with debug mode enabled).
 
