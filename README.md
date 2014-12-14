@@ -1,9 +1,9 @@
-# Sample Apache AIR project
+# Sample Apache Adobe AIR/Apache Flex project
 ## Description
 
 A template AIR project that can be built using Maven, it creates a Desktop AIR applcation.
 The Flexmojos currently cannot produce an APK for Android (or another mobile platform) automatically.
-The build makes use of a private maven repository containing the Mavenized Flex SDK.
+The build makes use of a private Maven repository containing the Mavenized Flex SDK.
 
 ## Generate a keyfile to sign the air
 
