@@ -59,11 +59,6 @@
 
                 <configuration>
                     <targetPlayer>${playerglobal.version}</targetPlayer>
-                    <!--
-                      Flex compiler options.
-                    -->
-                    <debug>${mxmlc.debug}</debug>
-                    <optimize>${mxmlc.optimize}</optimize>
 
                     <compilerWarnings>
                         <show-actionscript-warnings>false</show-actionscript-warnings>
@@ -80,6 +75,15 @@
                 </configuration>
 
                 <dependencies>
+                    <!--
+                        This strange dependency is here to fix a bug for embedding resources  from the Maven resources folder.
+                        See SOVFL-7736297.
+                    -->
+                    <dependency>
+                        <groupId>net.flexmojos.oss</groupId>
+                        <artifactId>flexmojos-threadlocaltoolkit-wrapper</artifactId>
+                        <version>${flexmojos.version}</version>
+                    </dependency>
                     <dependency>
                         <groupId>org.apache.flex</groupId>
                         <artifactId>compiler</artifactId>
