@@ -119,7 +119,7 @@
         <dependency>
             <groupId>com.adobe.air.framework</groupId>
             <artifactId>airglobal</artifactId>
-            <version>15.0</version>
+            <version>${air.version}</version>
             <type>swc</type>
         </dependency>
 
