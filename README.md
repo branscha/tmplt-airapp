@@ -50,5 +50,11 @@ You can see the Android log using
 
 * Create a Flex/Air project in the source directory, it will see the POM.
 * Dont let IntelliJ remove the module structure, leave it intact.
-* Adjust the .idea/flexmojos/[DERIVE-NAME].templates.xml, add the <path-element>src/main/resources</path-element> as a source folder.
+* Adjust the .idea/flexmojos/[DERIVE-NAME].templates.xml, add the &lt;path-element>src/main/resources&lt;/path-element> as a source folder.
 This is necessary to run/debug the application from within the IDE. You have to tweak this manually, currently I am not aware of a workaround.
+
+
+      <source-path>
+          <path-element>[PROJECT-DIR]\src\main\flex</path-element>
+          <path-element>[PROJECT-DIR]\src\main\resources</path-element>
+      </source-path&gt;
