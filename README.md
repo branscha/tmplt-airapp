@@ -46,9 +46,35 @@ You can see the Android log using
 
      %ADB% logcat
 
-### 2.4. IntelliJ Configuration
+### 2.4. Create Native Windows .exe
 
-* Create a Flex/Air project in the source directory, it will see the POM.
-* Dont let IntelliJ remove the module structure, leave it intact.
-* Adjust the .idea/flexmojos/[DERIVED-NAME].templates.xml, add the 'path-element' src/main/resources as a source folder.
-This is necessary to run/debug the application from within the IDE. You have to tweak this manually, currently I am not aware of a workaround.`
+     %ADT% -package -target native target/HelloWorld.exe target/HelloWorld.air
+
+### 2.5. IntelliJ Configuration
+#### 2.5.1. Prerequisites
+
+You need to have the flex SDK on your development machine for IntelliJ development for AIR.
+IntelliJ knows about AIR, but not about FlexMojos/AIR.
+Note that Maven does not need the locally installed SDK.
+
+#### 2.5.2. General Setup
+
+* File > New Project 
+* New Project Dialog
+   * Panel 1
+       * Target platform: Desktop
+       * Output type: Application
+       * Flex/Air SDK: Select the SDK, not the flexmojos.
+       * UNCHECK 'create sample' apps or the sources will be overwritten.
+   * Panel 2
+       * Select the source folder where the pom.xml resides.
+       * Finish
+* Add the pom manually to the 'Maven Projects' sidebar (with the '+').
+
+#### 2.5.3. Resource Folder Trick
+
+The FlexMojos can find the resources in src/main/resources, but the built-in compiler in IntelliJ does not add the Maven resource folder to the path.
+This issue is situated in the IntelliJ-FlexMojos integration for AIR applications. We can solve this issue with this hack.
+You have to do this if you get errors that the Flex compiler cannot find/compile/encode the embedded resources.
+
+* Adjust the .idea/flexmojos/[artifactId]-[groupId].xml, add the 'path-element' src/main/resources as a source folder.
