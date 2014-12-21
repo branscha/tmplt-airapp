@@ -1,0 +1,80 @@
+<!--
+    This ANT file contains supplementary tasks for the AIR project.
+    The purpose of these tasks is described in the README.md.
+-->
+<project name="Air Extras"  basedir=".">
+    <description>
+        Extra Build Tasks in addition to the Maven build.
+    </description>
+
+    <!-- Artifact name -->
+    <property name="swf-name" value="HelloWorld" />
+    <property name="pwd" value="changeit" />
+    <!-- Point to locally installed SDK's -->
+    <property name="ADT" location="c:/opt/apache-flex-4.13.0/bin/adt.bat" />
+    <property name="ADB" location="c:/Program Files (x86)/Android/android-sdk/platform-tools/adb.exe" />
+    <!-- Directories  relative to build/ -->
+    <property name="src" location="../src" />
+    <property name="target" location="../target" />
+
+    <!--
+        This should only be generated once. A test certificate is already in the src/resources directory.
+        The procedure is only included for completeness.
+    -->
+    <target name="create-cert">
+        <exec executable="${ADT}">
+            <arg line="
+                -certificate
+                -cn AirTest
+                -validityPeriod 10 2048-RSA ${target}/sign-cert.p12 ${pwd}" />
+        </exec>
+    </target>
+
+    <target name="create-apk">
+        <exec executable="${ADT}">
+            <arg line="
+                -package -target apk
+                -storetype pkcs12
+                -keystore ${src}/main/resources/sign.p12
+                -storepass ${pwd}
+                ${target}/${swf-name}.apk ${target}/${swf-name}.air" />
+        </exec>
+    </target>
+
+    <!--
+        Creates huge apk file ...
+    -->
+    <target name="create-apk-debug">
+        <exec executable="${ADT}">
+            <arg line="
+                -package -target apk-debug
+                -storetype pkcs12
+                -keystore ${src}/main/resources/sign.p12
+                -storepass ${pwd}
+                ${target}/${swf-name}.apk ${target}/${swf-name}.air" />
+        </exec>
+    </target>
+
+    <target name="create-exe">
+        <exec executable="${ADT}">
+            <arg line="
+                -package
+                -target native ${target}/${swf-name}.exe ${target}/${swf-name}.air" />
+        </exec>
+    </target>
+
+    <target name="install-apk">
+        <exec executable="${ADB}">
+            <arg line="
+                install -r ${target}/${swf-name}.apk" />
+        </exec>
+    </target>
+
+    <target name="install-runtime">
+        <exec executable="${ADT}">
+            <arg line="
+                -installRuntime -platform android " />
+        </exec>
+    </target>
+
+</project>

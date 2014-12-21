@@ -1,14 +1,14 @@
 # Sample Apache Adobe AIR/Apache Flex project
 ## 1. Description
 
-A template AIR project that can be built using Maven, it creates a Desktop AIR applcation.
+A template AIR project that can be built using Maven, it creates a Desktop AIR application.
 The Flexmojos currently cannot produce an APK for Android (or another mobile platform) automatically.
 The build makes use of a private Maven repository containing the Mavenized Flex SDK.
 
 ## 2. Additional Information
 ### 2.1. Generate a keyfile to sign the air
 
-The adt tool can be found in the Flex SDK distribution. The location might vary for differenet SDK versions. Make sure that the .bat exists in that location.
+The adt tool can be found in the Flex SDK distribution. The location might vary for different SDK versions. Make sure that the .bat exists in that location.
 
     SET ADT=[FLEX-SDK]\in\airsdk\bin\adt.bat
 
@@ -64,7 +64,7 @@ Note that Maven does not need the locally installed SDK.
    * Panel 1
        * Target platform: Desktop
        * Output type: Application
-       * Flex/Air SDK: Select the SDK, not the flexmojos.
+       * Flex/Air SDK: Select the SDK, not the Flexmojos.
        * UNCHECK 'create sample' apps or the sources will be overwritten.
    * Panel 2
        * Select the source folder where the pom.xml resides.
